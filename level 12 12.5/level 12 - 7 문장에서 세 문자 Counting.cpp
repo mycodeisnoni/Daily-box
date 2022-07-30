@@ -1,5 +1,5 @@
 #include<iostream>
-#include <string>
+#include <cstring>
 using namespace std;
 
 
@@ -9,7 +9,8 @@ int main()
 	cin.tie();
 	cout.tie();
 
-	string x[11];
+
+	char x[11];
 	cin >> x;
 
 
@@ -21,12 +22,12 @@ int main()
 	int cntb = 0;
 	int cntc = 0;
 
-	for (int i = 0; i < stlen(x); i++) {
-		if (x[i] == a)  cnta++; 
+	for (int i = 0; i < strlen(x); i++) {
+		if (x[i] == a)  cnta++;
 		if (x[i] == b)  cntb++;
 		if (x[i] == c)  cntc++;
 	}
-	
+
 	cout << a << "=" << cnta << '\n';
 	cout << b << "=" << cntb << '\n';
 	cout << c << "=" << cntc << '\n';
