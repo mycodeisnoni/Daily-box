@@ -23,23 +23,57 @@ bool cmp(int a, int b) {
 
 int main()
 {
-    string x[100];
+    string x;
 
     for (int i = 0; i < 5; i++) {
-            v[i].push_back(x);
-        }
+        cin >> x;
+        v[i].push_back(x);
+    }
 
     int a, b;
     cin >> a >> b;
 
-    sort(v[a].begin(), v[a].end, cmp);
-    sort(v[b].begin(), v[b].end, cmp);
+    sort(v[a].begin(), v[a].end(), cmp);
+    sort(v[b].begin(), v[b].end(), cmp);
 
-        
+
     for (int i = 0; i < 5; i++) {
         cout << v[i][0] << " ";
     }
-  
+
 
     return 0;
 }
+
+
+
+/*
+
+
+
+string v[5];
+
+int main()
+{
+    string x;
+
+    for (int i = 0; i < 5; i++) {
+        cin >> x;
+        v[i] = x;
+    }
+
+    int a, b;
+    cin >> a >> b;
+
+    sort(v[a].begin(), v[a].end());
+    sort(v[b].begin(), v[b].end());
+
+
+    for (int i = 0; i < 5; i++) {
+        cout << v[i][0] << " ";
+    }
+
+
+    return 0;
+}
+*/
