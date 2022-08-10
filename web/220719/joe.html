@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    '''    <style>
+        /* *{
+            border: 1px solid black;
+        } */
+        body{
+            background-color: lightgray;
+        }
+        .wrap{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sel{
+            display: flex;
+            flex-direction: row-reverse;
+            margin-right: 3%;
+        }
+        .logo{
+            background-image: url(./image/naver_logo.svg);
+            width: 230px;
+            height: 44px;
+            background-size: cover;
+            margin-bottom: 10px;
+        }
+        .IDPW{
+            padding: 7px 35px 10px 11px;
+        }
+        input{
+            width: 460px;
+            height: 29px;
+        </style>
+
+    
+</head>
+<body>
+    <div class="sel">
+        <select>
+            <option value="KR">한국어</option>
+            <option value="EN">English</option>
+        </select>
+    </div>
+    <div class="wrap">
+        <div class="logo">
+            <!-- <a href="https://www.naver.com"></a> -->
+        </div>
+        <div class="IDPW">
+            <input type="text" placeholder="아이디">
+        </div>
+        <div class="IDPW">
+            <input type="password" placeholder="비밀번호">
+        </div>
+    </div>
+</body>
+</html>

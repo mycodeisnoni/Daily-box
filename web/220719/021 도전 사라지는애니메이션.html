@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+       @keyframes ani {
+      0%{
+        background-color: rgb(255, 255, 255);
+      }
+      50%{
+        background-color: rgb(130, 130, 255);
+      }
+      100%{
+        background-color: blue;
+      }
+    }
+    @keyframes ani2 {
+      0%{
+        background-color: rgb(255, 255, 255);
+      }
+      30%{
+        background-color: rgb(171, 171, 253);
+      }
+      65%{
+        background-color: rgb(88, 88, 255);
+      }
+      100%{
+        background-color: blue;
+      }
+    }
+
+
+    .box{
+      width: 300px;
+      height: 300px;
+      background-color: blue;
+       /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+      }
+    .box-wrapper{
+      display: flex;
+    }
+
+    .odd{
+      animation: ani 3s infinite alternate backwards;
+    }
+
+
+
+  </style>
+</head>
+<body>
+<div class="box-wrapper">
+  <div class="box odd"></div>
+  <div class="box even"></div>
+  <div class="box odd"></div>
+  <div class="box even"></div>
+  <div class="box odd"></div>
+
+</div>
+</body>
+</html>

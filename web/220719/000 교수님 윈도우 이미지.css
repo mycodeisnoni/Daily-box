@@ -1,0 +1,29 @@
+.container{
+  background-color: orange;
+  border:1px solid black;
+  width:320px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item{
+  width:120px;
+  height:80px;
+  background-size: cover;
+  border-radius: 10px;
+  margin:10px;
+}
+
+.image1{
+  background-image: url(/windows/1.jpg);
+}
+.image2{
+  background-image: url(/windows/2.jpg);
+}
+.image3{
+  background-image: url(/windows/3.jpg);
+}
+.image4{
+  background-image: url(/windows/4.jpg);
+}

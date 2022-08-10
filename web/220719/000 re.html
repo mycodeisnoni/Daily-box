@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      border: 1px solid black;
+      /* display: flex; */
+
+/*  flex : container 를 기반으로 item의 배치
+container 에 부여
+ 부모에게 부여하는 속성과 자식에게 부여하는 속성으로 나뉜다 */
+
+    }
+    .container{
+      display: flex;
+      flex-direction: row;
+      width: 1000px;
+      /* 배치 방향을 정한다. 기본값 : row 
+      부모에게 적용하는 옵션
+      1. row
+      2. row-recerse
+      3. colum
+      4. colum-reverse */
+
+/* 주축과 교차축 , 주축은 x축 증감의 양방향 설정 가능 
+교차축은 늘 주축에 수직. 주축이 돌면 교차축은 동일 방향으로 같이회전 */
+
+
+      flex-wrap: wrap;
+      /* 남는 여백 무시하고 줄넘김처리 */
+    }
+    .item{
+      width: 300px;
+    }
+
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="item">1</div>
+    <div class="item">2</div>
+    <div class="item">3</div>  
+    <div class="item">4</div>  
+    <div class="item">5</div>
+    <div class="item">6</div>
+    <div class="item">7</div>
+  </div>
+</body>
+</html>

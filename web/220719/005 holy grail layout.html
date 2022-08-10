@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div{
+      border: 1px solid black;
+    }
+
+    .box{
+      display: flex;
+      flex-direction: row;
+    }
+
+    .container{
+      background-color: gray;
+    }
+
+    .nav{
+      flex: 1;
+    }
+
+    .section{
+      flex: 4;
+    }
+    .aside{
+      flex: 1;
+    }
+
+/* 한 칸 띄우고 쓰면  class 두 개 지정 가능
+flex 통해서 비율 지정 가능! */
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div class="box">header</div>
+
+    <div class="box">
+
+        <div class="item nav"> 
+          nav</div>
+
+        <div class="item section">
+
+          <div>section</div>
+          <div>header</div>
+          <div>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae aliquam illum veritatis minus sequi dignissimos ipsa, soluta mollitia quae numquam temporibus. Laudantium temporibus esse quis, non et at quod. Rem!
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae magnam ullam quis ex quidem necessitatibus molestias doloribus aliquam mollitia eum ut dicta excepturi, doloremque neque dolor iure adipisci ea! Molestias?
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure, eum debitis. Illo eius, eum, quam provident earum est excepturi omnis atque ea iusto sunt numquam! Maiores quam eveniet voluptatem incidunt?
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus non recusandae enim veniam. Fuga alias iusto laborum facilis, quaerat obcaecati magnam modi sunt. Dolorem, ad! Architecto magnam tempora consectetur a!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil nisi veritatis voluptates voluptatem aperiam sequi. Animi dolor voluptas, exercitationem architecto culpa ipsa facilis placeat perspiciatis quisquam ipsum, optio iure tenetur!
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dolore, aliquam ab maiores eaque id at? Voluptatibus, nobis aliquid? Inventore nostrum repellat vel unde sit dolorum nihil ipsam minus possimus!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga odio vitae accusantium! Accusantium nemo doloribus eos dolor et possimus! Maiores iure corrupti cum eum labore soluta impedit quas perferendis vero!
+          </div>
+          <div>footer</div>
+
+        </div>
+
+        <div class="item aside">
+          aside</div>
+
+    </div>
+
+    <div class="box">footer</div>
+
+</div>
+
+</body>
+</html>

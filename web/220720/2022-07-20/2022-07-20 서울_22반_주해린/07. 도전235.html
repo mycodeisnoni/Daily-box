@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="EN">
+  <head>
+    <title>My title</title>
+  </head>
+  <body>
+    <button class="button">1</button>
+  </body>
+  <script>
+    let n = 0
+    function hi(){
+        alert("안녕")
+    }
+    function count(){
+        n++
+        alert("안녕 버튼 "+n)
+    }
+    function button(){
+        for(let i = 2; i<=5;i++){
+            const button = document.createElement("button")
+            button.append(i)
+            button.setAttribute("class", "btn")
+            const body = document.querySelector("body")
+            body.append(button)
+            body.addEventListener('click',count)
+            // body.addEventListener('click',hi)
+        }
+
+    }
+    button()
+
+  </script>
+</html>

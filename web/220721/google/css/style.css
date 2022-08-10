@@ -1,0 +1,23 @@
+.header-nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+.container{
+    display: flex;
+    list-style: none;
+    padding: 0%;
+}
+
+.container li{
+    margin-left: 10px;
+}
+
+.main-container{
+    border: 1px solid black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 사용자의 입력을 받는 태그 input -->
+    <!-- value : 기본값 작성 / 미작성 시 공백 -->
+    <!-- type="text": 기본값 .생략해도 텍스트가 표사된다" -->
+    <input type="text" value="ID">
+    <br>
+    <!-- type="password" : 텍스트를 암호화해서 보여준다 " -->
+    <input type="password" placeholder="비밀번호를 입력하세요">
+    <br>
+    <br>
+    <!-- placeholder : 안내문구 보여줌 -->
+
+    <!-- raido 버튼은 한 가지만 선택 가능한 버튼
+    하나만 선택하기 위해 해당 인풋을 묶어주는 작업이 필요하다.
+    input을 묶어줄 때 사용하는 속성 : name 
+    name이 같은 경우에 묶임-->
+
+    자바반 : <input name="class" type="radio">
+    파이썬반 : <input name="class" type="radio">
+    임베디드반 : <input name="class" type="radio" checked>
+
+    <br><br>
+    <!-- checked : 기본값 설정 -->
+    <!-- type="checkbox" 다중선택 가능 옵션 -->
+        <!-- input:checkbox*3 -->
+    치킨<input type="checkbox" name="food" id="">
+    삼겹살<input type="checkbox" name="food" id="" checked>
+    마라탕<input type="checkbox" name="food" id="" checked>
+
+    <br><br>
+
+    <!-- type="submit" 보통 서버에 제출하기위한 제출 버튼
+    value 기본값 : 제출 -->
+        <input type="submit" value="로그인">
+    <!-- type="button"  일반 버튼의 역할 value 기본값이 공백-->
+    <input type="button" value="버튼">
+</body> 
+</html>

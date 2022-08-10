@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        async function getData(){
+            // 필요한 것 
+            // async await
+            // 통신 서버 주소 : https://api.thedogapi.com/v1/images/search
+            // src = 서버랑 통신한 결과의 url
+            const result = await axios.get("https://api.thedogapi.com/v1/images/search")
+             
+            }
+
+        getData()
+        
+    </script>
+</body>
+</html>

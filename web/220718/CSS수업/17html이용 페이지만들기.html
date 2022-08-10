@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            border: 1px solid black;
+            color: white;
+            background-color: gray;
+            text-align: center;
+            /* display: none;
+            가려집니다요~ 영역까지 싹 지움*/
+            visibility: hidden;
+            /* 얘는 자리는 그대로 남아요 */
+        }
+        .photo{
+            background-image: url(./01.jpg);
+            background-size: cover;
+            width: 150px;
+            height: 150px;
+            border: 1px solid black;
+            border-radius: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            /* 블록요소를 가운데 정렬하기 위함 
+            margin 0px auto : 앞은 위아래 동시, 뒤는 좌우 동시 */
+        }
+        .text{
+            border: 1px solid black;
+            text-align: center;
+            /* text-align : cemter 인라인 요소를 가운데 정렬하기 위함 
+            (단, 부모가 필요!!!!!) */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>
+        프로필 사진을 올려보자
+    </h1> 
+</div>
+    <br>
+    <div class="photo"></div>
+    <br>
+    <div class="text">
+        <a href="">테스트</a>
+    </div>
+</body>
+</html>

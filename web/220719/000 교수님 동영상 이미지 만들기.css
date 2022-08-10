@@ -1,0 +1,23 @@
+.container{
+  position: relative;
+  width:800px;
+}
+
+.img{
+  width:800px;
+  background-image: url(/images/pug.jpg);
+  background-size: cover;
+  height:400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text{
+  color:yellow;
+  margin-left:50px;
+  font-size: 40px;
+  position: absolute;
+  top:140px;
+  right:200px;
+}

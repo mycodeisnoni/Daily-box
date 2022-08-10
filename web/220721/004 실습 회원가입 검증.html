@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+
+
+</style>
+
+<body>
+
+
+    <form action="">
+        아이디 <input id="id" type="text">
+        비밀번호 <input id="password" type="password">
+
+
+        <!-- form 안의 button
+             type을 기입히지 않으면 input submit처럼 동작 (새로고침) -->
+        <button type="button" id="signup">회원가입</button>
+
+
+    </form>
+
+    <script>
+        const id = document.querySelector("#id")
+        const password = document.querySelector("#password")
+        const signupButton = document.querySelector("#signup")
+
+        signupButton.addEventListener('click',function(){
+            console.log("클릭됨?")
+            console.log(id.value)
+            console.log(password.value)
+
+            if(id.value !== "" && password.value !== ""){
+                alert("회원가입이 완료되었습니다!")
+            }
+            else{
+                if(id.value === ""){
+                    alert("id가 비어있습니다!")  
+                }
+                if(password.value === ""){
+                    alert("password가 비어있습니다!")
+                }
+
+
+            }
+        })
+    </script>
+
+
+<!-- <input type="text" class="idbox" placeholder="아이디">
+<div class="id-box"></div>
+<input type="text" class="password" placeholder="비밀번호">
+<div class="pw-box"></div>
+
+<button style="background-color:yellow;">회원가입하기</button>
+
+    <script>
+        const idbox = document.querySelector(".idbox")
+        
+        
+        
+
+
+
+    </script> -->
+    
+</body>
+</html>
