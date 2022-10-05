@@ -9,7 +9,7 @@ struct Node {
 };
 vector<Node>v;
 int lineCnt, coreCnt, N;
-int minLines = 5000;
+int minLines = 213456789;
 int maxCores = -1;
 
 void DFS(int a) {
@@ -43,7 +43,7 @@ void DFS(int a) {
 			lineCnt++;
 		}
 		coreCnt++;
-		DFS(a+1);
+		DFS(a + 1);
 		coreCnt--;
 		for (int i = 0; i < pr; i++) {
 			map[i][pc] = 0;
@@ -51,27 +51,29 @@ void DFS(int a) {
 		}
 	}
 
+	abc = true;
 	// 2. 아래로 탐색
-	for (int i = pr+1; i < N; i++) {
+	for (int i = pr + 1; i < N; i++) {
 		if (map[i][pc]) {
 			abc = false;
 			break;
 		}
 	}
 	if (abc) {
-		for (int i = pr+1; i < N; i++) {
+		for (int i = pr + 1; i < N; i++) {
 			map[i][pc] = 2;
 			lineCnt++;
 		}
 		coreCnt++;
 		DFS(a + 1);
 		coreCnt--;
-		for (int i = pr+1; i < N; i++) {
+		for (int i = pr + 1; i < N; i++) {
 			map[i][pc] = 0;
 			lineCnt--;
 		}
 	}
 
+	abc = true;
 	// 3. 좌로 탐색
 	for (int i = 0; i < pc; i++) {
 		if (map[pr][i]) {
@@ -93,6 +95,7 @@ void DFS(int a) {
 		}
 	}
 
+	abc = true;
 	// 4. 우로 탐색
 	for (int i = pc + 1; i < N; i++) {
 		if (map[pr][i]) {
@@ -114,6 +117,7 @@ void DFS(int a) {
 		}
 	}
 
+	abc = true;
 	// 5. 탐색을 안하고 지나가는 경우
 	DFS(a + 1);
 
@@ -128,10 +132,15 @@ int main()
 
 	int T;
 	cin >> T;
-	for(int tc = 1; tc <= T; tc++) {
+	for (int tc = 1; tc <= T; tc++) {
 		cin >> N;
 		coreCnt = 0;
 		lineCnt = 0;
+
+		// 전역변수로 정의를 하면 값이 계속 받아져서 내려오니까 다시 main함수에서 정의해주자
+		minLines = 213456789;
+		maxCores = 0;
+
 		v.clear();
 
 		for (int i = 0; i < N; i++) {
