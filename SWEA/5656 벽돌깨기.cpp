@@ -7,10 +7,11 @@ using namespace std;
 int N, W, H;
 int cnt;
 
-int order[4] = { 0, };
+vector<int> order;
 
-int map[15][12] = { 0, };
-int used[15][12] = { 0, };
+int map[15][12];
+int map_copy[15][12];
+int used[15][12];
 
 int dr[4] = { -1,1,0,0 };
 int dc[4] = { 0,0,-1,1 };
@@ -20,7 +21,17 @@ struct Node {
 };
 queue <Node> q;
 vector <Node> v;
-vector<int>Nidx[12];
+
+void printMap() {
+	for (int y = 0; y < H; y++)
+	{
+		for (int x = 0; x < W; x++) {
+			cout << map[y][x];
+		}
+		cout << &apos; \n& apos;;
+	}
+	cout << &apos; \n& apos;;
+}
 
 // 중력에 의해 떨어지는 상황을 구현하는 함수
 // 각 col마다 아래에서부터 map이 0이 아니면 Nidx[col]에 푸시
@@ -28,23 +39,20 @@ vector<int>Nidx[12];
 // 순서 맞췄으니까 map변경
 int gravity() {
 	int num = 0;
-	Nidx->clear();
 	for (int j = 0; j < W; j++) {
+		vector<int> Nidx;
 		for (int i = H - 1; i >= 0; i--) {
 			if (map[i][j]) {
-				Nidx[j].push_back(map[i][j]);
+				Nidx.push_back(map[i][j]);
+				map[i][j] = 0;
 				num++;
 			}
 		}
-	}
-	for (int j = 0; j < W; j++) {
-		for (int i = H - 1; i >= 0; i--) {
-			if (!map[i][j]) Nidx[j].push_back(0);
-		}
-	}
-	for (int j = 0; j < W; j++) {
-		for (int i = H - 1; i >= 0; i--) {
-			map[i][j] = Nidx[j][H - 1 - i];
+
+		int idx = H - 1;
+		for (int i = 0; i < Nidx.size(); i++) {
+			map[idx][j] = Nidx[i];
+			idx--;
 		}
 	}
 	return num;
@@ -61,14 +69,15 @@ void punch(int glass) {
 	int row = 0;
 	int col = glass;
 	for (int i = 0; i < H; i++) {
-		if (map[i][col]) row = i;
-		break;
+		if (map[i][col]) {
+			row = i;
+			break;
+		}
 	}
 
 	// 터질 애들을 다 벡터에 집어넣자
 	// 큐에는 블럭에 적힌 숫자가 2이상이라 주변을 또 터뜨릴 애들을 푸시
 	v.clear();
-	int dis = map[row][col] - 1;
 	q.push({ row, col });
 	used[row][col] = 1;
 	v.push_back({ row,col });
@@ -77,6 +86,8 @@ void punch(int glass) {
 		while (!q.empty()) {
 			Node now = q.front();
 			q.pop();
+			int dis = map[now.row][now.col] - 1;
+
 			for (int d = 1; d <= dis; d++) {
 				for (int i = 0; i < 4; i++) {
 					int nr = now.row + dr[i] * d;
@@ -103,18 +114,29 @@ void punch(int glass) {
 void orderMaker(int a) {
 
 	if (a == N) {
+		//map init
+		for (int y = 0; y < H; y++) {
+			for (int x = 0; x < W; x++) {
+				map[y][x] = map_copy[y][x];
+			}
+		}
+
 		int blockNow = 0;
 		for (int b = 0; b < N; b++) {
 			punch(order[b]);
 			blockNow = gravity();
+			int de = 1;
 		}
-		if (blockNow < cnt) cnt = blockNow;
+		if (blockNow < cnt) {
+			cnt = blockNow;
+		}
 		return;
 	}
 
 	for (int i = 0; i < W; i++) {
-		order[a] = i;
-		orderMaker(a++);
+		order.push_back(i);
+		orderMaker(a + 1);
+		order.pop_back();
 	}
 }
 
@@ -127,17 +149,18 @@ int main() {
 	cin >> T;
 	for (int tc = 1; tc <= T; tc++) {
 
-		cnt = 0;
+		cnt = 200;
 		cin >> N >> W >> H;
 
 		for (int i = 0; i < H; i++) {
 			for (int j = 0; j < W; j++) {
 				cin >> map[i][j];
+				map_copy[i][j] = map[i][j];
 			}
 		}
 
 		orderMaker(0);
-		cout << "#" << tc << " " << cnt << "\n";
+		cout << &quot; # & quot; << tc << &quot; &quot; << cnt << &quot; \n & quot;;
 	}
 
 	return 0;
