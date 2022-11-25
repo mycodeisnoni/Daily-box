@@ -1,0 +1,624 @@
+[
+    {
+        "id": "4be9cf7a51c1f8c4",
+        "type": "tab",
+        "label": "플로우 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ed90fa3eaa3ccf33",
+        "type": "ui_template",
+        "z": "4be9cf7a51c1f8c4",
+        "group": "f93937289e1cf5ab",
+        "name": "블랙박스",
+        "order": 6,
+        "width": 11,
+        "height": 7,
+        "format": "<iframe scrolling=no marginwidth=0 marginheight=0 frameborder=0 height=439 width=553\n    src=\"http://70.12.230.111/html/min.php\"></iframe>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 540,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "01789383db55eaf8",
+        "type": "ui_switch",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "label": "안전벨트",
+        "tooltip": "",
+        "group": "f93937289e1cf5ab",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 320,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "be254d75bebf4d4b",
+        "type": "ui_switch",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "label": "주행여부",
+        "tooltip": "",
+        "group": "f93937289e1cf5ab",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 580,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1e7c7911b1df0ea3",
+        "type": "ui_button",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "group": "f93937289e1cf5ab",
+        "order": 1,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "직진!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "-1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 360,
+        "wires": [
+            [
+                "6c2a99c53bf713be"
+            ]
+        ]
+    },
+    {
+        "id": "6c2a99c53bf713be",
+        "type": "mqtt out",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/step",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "52102129818f4c3c",
+        "x": 570,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "dfb7c1cf2e0d575d",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "안전벨트를 착용 후 주행 가능합니다.",
+        "topic": "mycar/nobelt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 200,
+        "y": 580,
+        "wires": [
+            [
+                "063b5467c0609ede"
+            ]
+        ]
+    },
+    {
+        "id": "063b5467c0609ede",
+        "type": "ui_toast",
+        "z": "4be9cf7a51c1f8c4",
+        "position": "top right",
+        "displayTime": "3",
+        "highlight": "red",
+        "sendall": true,
+        "outputs": 0,
+        "ok": "OK",
+        "cancel": "Cancel",
+        "raw": true,
+        "className": "",
+        "topic": "",
+        "name": "",
+        "x": 450,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "dee1da5ba882e439",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/belt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 120,
+        "wires": [
+            [
+                "01789383db55eaf8"
+            ]
+        ]
+    },
+    {
+        "id": "2ad1d1abe5d722cc",
+        "type": "ui_button",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "group": "f93937289e1cf5ab",
+        "order": 2,
+        "width": 3,
+        "height": 2,
+        "passthru": false,
+        "label": "정지",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 390,
+        "y": 480,
+        "wires": [
+            [
+                "6c2a99c53bf713be"
+            ]
+        ]
+    },
+    {
+        "id": "2757ee0fe50841dc",
+        "type": "ui_button",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "group": "f93937289e1cf5ab",
+        "order": 4,
+        "width": 3,
+        "height": 1,
+        "passthru": false,
+        "label": "후진!",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 270,
+        "y": 400,
+        "wires": [
+            [
+                "6c2a99c53bf713be"
+            ]
+        ]
+    },
+    {
+        "id": "e0c8f678cab3ad48",
+        "type": "debug",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 460,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "55ba3a95d4c71ac7",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/belt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 280,
+        "y": 900,
+        "wires": [
+            [
+                "e0c8f678cab3ad48"
+            ]
+        ]
+    },
+    {
+        "id": "e3def763739253b2",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "안전벨트를 착용 후 주행 가능합니다.",
+        "topic": "mycar/nobelt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 220,
+        "y": 960,
+        "wires": [
+            [
+                "5240b47584a793cc"
+            ]
+        ]
+    },
+    {
+        "id": "5240b47584a793cc",
+        "type": "debug",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "147bb24ea4c06234",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/speed",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 1020,
+        "wires": [
+            [
+                "adbd6a20f5cfb382"
+            ]
+        ]
+    },
+    {
+        "id": "adbd6a20f5cfb382",
+        "type": "debug",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "05e70fcee3d063ec",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/speedt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 390,
+        "y": 200,
+        "wires": [
+            [
+                "be254d75bebf4d4b"
+            ]
+        ]
+    },
+    {
+        "id": "460adf1a49584069",
+        "type": "mqtt in",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "",
+        "topic": "mycar/speedt",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "52102129818f4c3c",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 290,
+        "y": 1100,
+        "wires": [
+            [
+                "8af66fbb197d591c"
+            ]
+        ]
+    },
+    {
+        "id": "8af66fbb197d591c",
+        "type": "debug",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 480,
+        "y": 1100,
+        "wires": []
+    },
+    {
+        "id": "aedc2a4971f93b0f",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "ea81e950603a95de",
+        "order": 1,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "e94a12d78dd02772",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "ea81e950603a95de",
+        "order": 4,
+        "width": 5,
+        "height": 1
+    },
+    {
+        "id": "bb54401f406f4b69",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 3,
+        "width": 12,
+        "height": 1
+    },
+    {
+        "id": "6cb5b5389bb625cd",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 6,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "3ae48b586955dfac",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 8,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "9b87e700b0da8be6",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 9,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "b1927385ab0a80f3",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 10,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "2de39344039d068e",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 11,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "75d3790762270ee2",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 12,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "0394d45b68482f8c",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 13,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "282ca30722ade951",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "",
+        "order": 14,
+        "width": 2,
+        "height": 1
+    },
+    {
+        "id": "5b2cd6f4c001abd8",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "f93937289e1cf5ab",
+        "order": 8,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "df71620d720e233b",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "f93937289e1cf5ab",
+        "order": 9,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "da051e61a50cd50a",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "f93937289e1cf5ab",
+        "order": 10,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "89ce95ee897576b7",
+        "type": "ui_spacer",
+        "z": "4be9cf7a51c1f8c4",
+        "name": "spacer",
+        "group": "f93937289e1cf5ab",
+        "order": 11,
+        "width": 3,
+        "height": 1
+    },
+    {
+        "id": "f93937289e1cf5ab",
+        "type": "ui_group",
+        "name": "UI",
+        "tab": "dad4e842b883bef0",
+        "order": 1,
+        "disp": true,
+        "width": "11",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "52102129818f4c3c",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "70.12.230.111",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "dad4e842b883bef0",
+        "type": "ui_tab",
+        "name": "RC.JS",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
