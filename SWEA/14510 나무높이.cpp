@@ -40,10 +40,8 @@ int calc() {
 	cnt2 = 0;
 
 	for (int i = 0; i < tree.size(); i++) {
-
 		cnt1 += need_water[i] % 2;
 		cnt2 += need_water[i] / 2;
-
 	}
 
 	if (cnt1 == 0 && cnt2 == 0) return 0;
