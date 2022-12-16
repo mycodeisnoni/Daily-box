@@ -14,7 +14,6 @@ vector <Node> v;
 int Original = 0;
 
 void init() {
-
 	cin >> Money >> m;
 	Original = Money;
 	cin >> N >> record;
