@@ -10,12 +10,11 @@ struct Node {
     long long value;
     int first, second;
 };
-bool operator<(Node A, Node B) {
-    if (A.value > B.value) return true;
+bool cmp(Node A, Node B) {
+    if (A.value < B.value) return true;
     else return false;
 }
-priority_queue<Node>can_make;
-vector<Node>v;
+vector<Node>can_make;
 
 void init() {
     cin >> N;
@@ -28,17 +27,14 @@ void init() {
 }
 
 int bp() {
-    for (int i = 0; i< number.size(); i++) {
+    for (int i = 0; i < number.size(); i++) {
         for (int j = i + 1; j < number.size(); j++) {
             //can_make.push_back(number[i] + number[j]);
-            can_make.push({number[i] + number[j] , i, j});
+            can_make.push_back({ number[i] + number[j] , i, j });
         }
     }
+    sort(can_make.begin(), can_make.end(), cmp);
 
-    while (!can_make.empty()) {
-        v.push_back(can_make.top());
-        can_make.pop();
-    }
 
     int nowIdx = 0;
     int cnt = 0;
@@ -46,8 +42,8 @@ int bp() {
 
     for (int i = 0; i < number.size(); i++) {
         long long now = number[i];
-        while (v[nowIdx].value < now) {
-            if (nowIdx == v.size()-1) {
+        while (can_make[nowIdx].value < now) {
+            if (nowIdx == can_make.size() - 1) {
                 flag = 1;
                 break;
             }
@@ -55,17 +51,17 @@ int bp() {
         }
         if (flag == 1) break;
 
-        if (now == v[nowIdx].value) {
+        if (now == can_make[nowIdx].value) {
 
             int checking = nowIdx;
 
-            while (v[checking].value == v[nowIdx].value) {
-                if (v[checking].first != i && v[checking].second != i) {
+            while (can_make[checking].value == can_make[nowIdx].value) {
+                if (can_make[checking].first != i && can_make[checking].second != i) {
                     cnt++;
                     break;
                 }
                 else {
-                    if (checking == v.size() - 1) break;
+                    if (checking == can_make.size() - 1) break;
                     checking++;
                 }
             }
